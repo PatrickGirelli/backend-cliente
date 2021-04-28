@@ -27,7 +27,7 @@ exports.Insert = (req, res, next) => {
         //catch = registra o que queremos que aconteca quando a Promise falhar
         .catch(error => next(error));
 };
-
+ 
 exports.SelectAll = (req, res, next) => {
     Cliente.findAll()
         .then(cliente => {
@@ -51,7 +51,7 @@ exports.SelectDetail = (req, res, next) => {
         })
         .catch(error => next(error));
 };
-
+ 
 exports.Update = (req, res, next) => {
     const id = req.params.id;
     const nome = req.body.nome;
@@ -59,7 +59,7 @@ exports.Update = (req, res, next) => {
     const dataNascimento = req.body.dataNascimento;
     const ativo = req.body.ativo;
  
-    Produto.findByPk(id)
+    Cliente.findByPk(id)
         .then(cliente => {
             if (cliente) {
                 cliente.update({
