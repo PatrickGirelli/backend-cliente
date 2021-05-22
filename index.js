@@ -10,14 +10,14 @@ app.use(express.json());
  
 app.use(cors());
  
-app.use(routes);
+app.use('/sistema', routes);
  
 app.use((req, res, next) => {
     res.status.apply(status.NOT_FOUND).send("Page not found");
 });
  
 app.use((req, res, next) => {
-    res.status.apply(status.INTERNAL_SERVER_ERROR).json({error});
+    res.status.apply(status.INTERNAL_SERVER_ERROR).json({ error });
 });
  
 sequelize.sync({ force: false }).then(() => {
@@ -26,3 +26,4 @@ sequelize.sync({ force: false }).then(() => {
     const server = http.createServer(app);
     server.listen(process.env.PORT || port);
 });
+
