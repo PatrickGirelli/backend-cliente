@@ -1,9 +1,9 @@
 const http = require('http');
 const express = require('express');
-const status = require ('http-status');
-const sequelize = require ('./src/database/database');
+const status = require('http-status');
+const sequelize = require('./src/database/database');
 const app = express();
-const routes = require ('./src/routes/routes.js');
+const routes = require('./src/routes/routes.js');
 const cors = require('cors');
  
 app.use(express.json());
@@ -26,4 +26,3 @@ sequelize.sync({ force: false }).then(() => {
     const server = http.createServer(app);
     server.listen(process.env.PORT || port);
 });
-
